@@ -62,7 +62,7 @@ function adicionarNum() {
 
         // verifica se valor já está na lista
     } else if (verificarNum(inputnum) == true) {
-        alert('Valor já encontrado na lista');
+        alert('Valor já digitado, tente outro!');
     }
     else {
         listaAux.push(inputnum);
