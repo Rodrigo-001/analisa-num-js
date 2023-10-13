@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Js</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>  
+    <header>
+        <h1>Analisador de números</h1>
+    </header>
+    <main>
+        <section>
+            <div>
+                <label for="lbnumero">Número (de 1 a 100):</label>
+                <input type="number" id="inputnum" placeholder="Ex.: 1">
+                <input type="button" value="Adicionar" onclick="adicionarNum()">
+
+                <!-- caixa com números digitados -->
+            </div>
+            <div id="arealista">
+                <select name="flista" id="flista" size="6">
+                    <!-- <option value="vazio">Nenhum número adicionado</option> -->
+                </select>
+                <input type="button" value="Finalizar" onclick="mostrarDados()">
+            </div>
+            <div id="resultado">
+            </div>
+        </section>
+    </main>
+    <footer> 
+        <p>&copy; Autor: Rodrigo Camargo</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
