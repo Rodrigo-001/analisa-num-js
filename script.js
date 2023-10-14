@@ -2,12 +2,7 @@ listaAux = []
 
 function verificarNum(num) {
     // verfica se o numero está contido na lista, retorna true ou false
-    for (let i = 0; i < listaAux.length; i++) {
-        if (listaAux[i] == num) {
-            return true;
-        }
-    };
-    return false;
+    return listaAux.indexOf(num) !== -1;
 }
 
 function obterDados() {
@@ -28,6 +23,7 @@ function obterDados() {
     // verifica se lista está vazia
     if (listaAux.length == 0) {
         alert('Adicione valores antes de finalizar');
+        inputElement.focus();
     } else {
         // obtém maior e menor numero digitado
         for (let i = 0; i < listaAux.length; i++) {
@@ -53,20 +49,38 @@ function obterDados() {
 
 function adicionarNum() {
     /*Adiciona um número na lista e mostra na tela. */
-    let inputnum = Number(document.querySelector('input#inputnum').value);
-    let selectnum = document.querySelector('select#flista');
+
+    let inputElement = document.querySelector('input#inputnum'); 
+    let inputnum = Number(inputElement.value); 
+
+    // let inputnum = Number(document.querySelector('input#inputnum').value);
+    let selectnum = document.querySelector('select#flista');   
 
     // verifica se valor não é um número
     if (Number.isNaN(inputnum) || inputnum < 1 || inputnum > 100) {
         alert('Digite um número entre 1 e 100');
+        inputElement.value = ''; 
+        inputElement.focus();
+
 
         // verifica se valor já está na lista
     } else if (verificarNum(inputnum) == true) {
         alert('Valor já digitado, tente outro!');
+        // limpa o input
+        inputElement.value = '';
+        inputElement.focus();
+
     }
     else {
-        listaAux.push(inputnum);
-        selectnum.innerHTML += `<option value="${inputnum}">Valor ${inputnum} adicionado</option>`;
+        listaAux.push(inputnum);    // adiciona valor na lista.
+        let item = document.createElement('option'); // cria um elemento option
+        item.text = `Valor ${inputnum} adicionado.`; //adiciona texto ao elemento option
+        selectnum.appendChild(item); // adiciona o elemento option ao select
+
+        // limpa o input
+        inputElement.value = '';
+        // foca no input
+        inputElement.focus();
     }
 }
 function mostrarDados() {
